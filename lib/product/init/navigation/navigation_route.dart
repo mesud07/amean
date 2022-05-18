@@ -1,4 +1,4 @@
-import 'package:ameanacademy/feature/login/signin/view/signin_view.dart';
+import 'package:ameanacademy/feature/auth/signin/view/signin_view.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,7 +15,7 @@ class NavigationRoute {
     switch (args.name) {
       
       case NavigationConstants.loginView:
-        return normalNavigate(const SigninView());
+        return normalNavigate(const SignInView());
     
 
       default:

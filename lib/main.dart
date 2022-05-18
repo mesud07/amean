@@ -1,5 +1,6 @@
 import 'package:ameanacademy/core/init/navigation/navigation_service.dart';
 import 'package:ameanacademy/core/init/notifier/theme_notifier/theme_notifier.dart';
+import 'package:ameanacademy/feature/auth/signin/view/signin_view.dart';
 import 'package:ameanacademy/feature/homepage/homepageview.dart';
 import 'package:ameanacademy/product/init/navigation/navigation_route.dart';
 import 'package:ameanacademy/product/init/notifier/provider_list.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
          
           title: "AMEAN",
           theme: themeNotifier.currentTheme,
-          home: HomePageView()
+          home: SignInView()
         );
       },
     );

@@ -1,3 +1,5 @@
+import 'package:ameanacademy/feature/auth/signin/controller/signin_controller.dart';
+import 'package:ameanacademy/feature/auth/signin/view/signin_view.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -13,10 +15,11 @@ class ApplicationProvider {
   ApplicationProvider._init();
 
   List<SingleChildWidget> singleItems = [];
-  List<SingleChildWidget> dependItems = [
-    ChangeNotifierProvider(create: (context) => ThemeNotifier(),),
-    
-    
+   List<SingleChildWidget> dependItems = [
+    ChangeNotifierProvider(create: (context) => SigninController(),),
+     ChangeNotifierProvider(create: (context) => ThemeNotifier(),
+
+    ),
   ];
   List<SingleChildWidget> uiChangesItems = [];
 }

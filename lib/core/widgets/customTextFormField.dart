@@ -77,19 +77,30 @@ class _AuthTextFieldState extends State<AuthTextField> {
     });
   }
 }
-class CustomTextFormField extends StatelessWidget {
+
+
+
+
+class CustomTextFormField extends StatefulWidget {
   final TextEditingController textEditingController;
   final bool isPass;
   final String labelText;
   final TextInputType textInputType;
-  const CustomTextFormField({
+  bool isObsecure;
+   CustomTextFormField({
     Key? key,
     required this.textEditingController,
     this.isPass = false,
     required this.labelText,
     required this.textInputType,
+    this.isObsecure=false
   }) : super(key: key);
 
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     final inputBorder = OutlineInputBorder(
@@ -98,15 +109,27 @@ class CustomTextFormField extends StatelessWidget {
     );
 
     return TextFormField(
-      controller: textEditingController,
+      controller: widget.textEditingController,
       decoration: InputDecoration(
        
         contentPadding:
                   EdgeInsets.symmetric(horizontal: 10),
-        label: Text(labelText),
+        label: Text(widget.labelText),
         border: inputBorder,
         enabledBorder: inputBorder,
         fillColor: Colors.grey,
+        suffixIcon: widget.labelText == "Password"
+              ? widget.isObsecure!=true
+                  ? IconButton(
+                      onPressed: changeObsecure,
+                      icon: const Icon(Icons.visibility_off_rounded,color: Colors.grey,),
+                    )
+                  : IconButton(
+                      onPressed: changeObsecure,
+                      icon: const Icon(Icons.visibility,color: Colors.grey,),
+                    )
+              : const SizedBox(),
+        
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color:Colors.black,
@@ -120,8 +143,14 @@ class CustomTextFormField extends StatelessWidget {
       style: TextStyle(
         color: Colors.black,
       ),
-      keyboardType: textInputType,
-      obscureText: isPass,
+      keyboardType: widget.textInputType,
+      obscureText: widget.isObsecure,
     );
+  }
+    void changeObsecure() {
+    setState(() {
+      widget.isObsecure = !widget.isObsecure;
+      
+    });
   }
 }
