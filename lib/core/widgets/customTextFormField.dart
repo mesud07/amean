@@ -119,7 +119,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         enabledBorder: inputBorder,
         fillColor: Colors.grey,
         suffixIcon: widget.labelText == "Password"
-              ? widget.isObsecure!=true
+              ? widget.isObsecure!=false
                   ? IconButton(
                       onPressed: changeObsecure,
                       icon: const Icon(Icons.visibility_off_rounded,color: Colors.grey,),
