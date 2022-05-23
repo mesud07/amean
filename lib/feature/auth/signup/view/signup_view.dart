@@ -2,6 +2,7 @@ import 'package:ameanacademy/core/constants/citiesList/citiesList.dart';
 import 'package:ameanacademy/core/extensions/context_extension.dart';
 import 'package:ameanacademy/core/init/navigation/navigation_service.dart';
 import 'package:ameanacademy/feature/auth/signin/controller/signin_controller.dart';
+import 'package:ameanacademy/feature/auth/signin/view/signin_view.dart';
 import 'package:ameanacademy/feature/auth/signup/controller/signup_controller.dart';
 import 'package:ameanacademy/feature/auth/signup/view/secondof_signup_view.dart';
 import 'package:ameanacademy/product/init/navigation/navigation_route.dart';
@@ -106,70 +107,7 @@ class _SignUpViewState extends State<SignUpView> {
               ),
             ),
 
-        //     Container(
-        //       margin: EdgeInsets.only(top:context.height/30,left: context.width/100),
-        //       child: DropdownButtonFormField<String>(
-        //         alignment: Alignment.centerLeft,
-        //         items: cities
-        //  .map((String item) =>
-        //      DropdownMenuItem<String>(child: Text(item), value: item))
-        //  .toList(),
-        //          onChanged: (String? value)=>setState(() {
-        //            cityValue=value!;
-        //          }),
-        //          value: cityValue,
-        //          elevation: 8,
-        //          dropdownColor: Colors.white,
-        //         decoration:  InputDecoration(
-        //           hintText: "Name",
-                  
-                
-                   
-        //          ),),
-                 
-        //     ),
-
-        //     Padding(
-        //       padding:  EdgeInsets.only(top:context.height/30),
-        //       child: CustomTextFormField(
-        //         labelText: "Okul",
-        //         textInputType: TextInputType.emailAddress,
-        //         textEditingController:item.schoolController,
-        //         isPass: false,
-        
-        //       ),
-        //     ),
-
-        //    Container(
-        //       margin: EdgeInsets.only(top:context.height/30,left: context.width/100),
-        //       child: DropdownButtonFormField<String>(
-        //         alignment: Alignment.centerLeft,
-        //         items: registerTypes
-        //  .map((String item) =>
-        //      DropdownMenuItem<String>(child: Text(item), value: item))
-        //  .toList(),
-        //          onChanged: (String? value)=>setState(() {
-        //            registerType=value!;
-        //          }),
-        //          value: registerType,
-        //          elevation: 8,
-        //          dropdownColor: Colors.white,
-        //        ),
-                 
-        //     ),
-
-
-        //     Padding(
-        //       padding:  EdgeInsets.only(top:context.height/30,bottom: context.height/20),
-        //       child: CustomTextFormField(
-        //         labelText: "Okul Numarası",
-        //         textInputType: TextInputType.emailAddress,
-        //         textEditingController:item.schoolNumberController,
-        //         isPass: false,
-        
-        //       ),
-        //     ),
-          
+     
                  
                                 
                    CustomButton(
@@ -186,7 +124,7 @@ class _SignUpViewState extends State<SignUpView> {
                CustomButton(
                  text: "Giriş Yap",
                  onpressed: (){
-                  
+                  Navigator.pushAndRemoveUntil(context, NavigationRoute.instance.normalNavigate(SignInView()), (route) => false);
                  },
                  backgroundColor: [Color.fromARGB(255, 39, 89, 139),Color(0xff003559),],
                  textColor: Colors.white,

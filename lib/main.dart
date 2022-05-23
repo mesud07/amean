@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
          
           title: "AMEAN",
           theme: themeNotifier.currentTheme,
-          home: SignUpView()
+          home: HomePageView()
         );
       },
     );

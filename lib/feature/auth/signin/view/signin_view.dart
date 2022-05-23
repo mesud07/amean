@@ -1,5 +1,8 @@
 import 'package:ameanacademy/core/extensions/context_extension.dart';
 import 'package:ameanacademy/feature/auth/signin/controller/signin_controller.dart';
+import 'package:ameanacademy/feature/auth/signup/view/signup_view.dart';
+import 'package:ameanacademy/feature/homepage/homepageview.dart';
+import 'package:ameanacademy/product/init/navigation/navigation_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -65,7 +68,10 @@ class SignInView extends StatelessWidget {
                                 
                    CustomButton(
                  text: "Kayıt Ol",
-                 onpressed: (){},
+                 onpressed: (){
+           Navigator.pushAndRemoveUntil(context, NavigationRoute.instance.normalNavigate(SignUpView()), (route) => false);
+
+                 },
                  backgroundColor: [Color.fromARGB(255, 39, 89, 139),Color(0xff003559),],
                  textColor: Colors.white,
             
@@ -73,8 +79,11 @@ class SignInView extends StatelessWidget {
 
                CustomButton(
                  text: "Giriş Yap",
-                 onpressed: (){},
-                 backgroundColor: [Color.fromARGB(255, 39, 89, 139),Color(0xff003559),],
+                 onpressed: (){
+               Navigator.pushAndRemoveUntil(context, NavigationRoute.instance.normalNavigate(HomePageView()), (route) => false);
+
+                 },
+                 backgroundColor: [Color(0xFF27598B),Color(0xff003559),],
                  textColor: Colors.white,
             
               ),
